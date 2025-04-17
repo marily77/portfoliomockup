@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>portfoliomockup</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
+  <link rel="preload" href="puud1.jpg" as="image">
+  <link rel="preload" href="puud2.jpg" as="image">
+  <link rel="preload" href="puud3.jpg" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div id="fullpage">
+    <div class="section parallax1">
+      <div class="text-overlay">
+        <h1>Creative Visual Design</h1>
+        <h3>Marily Valkijainen</h3>
+      </div>
+    </div>
+
+    <div class="section parallax2">
+      <div class="text-overlay">
+        <h1>Creative Visual Design</h1>
+        <h3>Marily Valkijainen</h3>
+        <div class="parallax-menu">
+          <button onclick="fullpage_api.moveTo(3)">Projects</button>
+          <button onclick="fullpage_api.moveTo(4)">About</button>
+          <button onclick="fullpage_api.moveTo(5)">Connect</button>
+        </div>
+        <div class="scroll-down-arrow" onclick="fullpage_api.moveTo(3)">
+          <div class="triangle-down"></div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="section parallax3">
+      <div class="text-overlay">
+        <h1 class="carousel-heading">Explore the Projects</h1>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <img src="kaart1.png" class="carousel-item active">
+          <img src="kaart2.png" class="carousel-item">
+          <img src="kaart3.png" class="carousel-item">
+          <img src="kaart4.png" class="carousel-item">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="section parallax4">
+      <div class="split-container">
+        <div class="split-left" >
+          <h1 class="text4">About Me</h1>
+          <p class="p4">
+            I'm passionate about weaving design and storytelling into immersive web experiences.
+            My work blends creativity with functionality to bring ideas to life on the screen.<br/><br/>
+            I'm passionate about weaving design and storytelling into immersive web experiences.
+            My work blends creativity with functionality to bring ideas to life on the screen.
+     
+          </p>
+          <button class="more-btn">More...</button>
+        </div>
+        <div class="split-right">
+          <img src="kangu - Copy.jpg" alt="Portrait or Work" />
+        </div>
+      </div>
+
+    </div>
+    <div class="section parallax5">
+      <div class="text-overlay">
+
+
+
+        <h1>Let's Connect</h1>
+        
+
+        <div class="social-icons">
+          <a href="https://instagram.com/marilysartnest" target="_blank" class="social-box"><img src="ins.png" alt=""></a>
+          <a href="https://facebook.com/marilysartnest" target="_blank" class="social-box"><img src="fb.png" alt=""></a>
+          <a href="https://linkedin.com/in/marily-valkijainen" target="_blank" class="social-box"><img src="in.png" alt=""></a>
+          <a href="mailto:your@email.com" target="_blank" class="social-box"><img src="mail.png" alt=""></a>
+        </div>
+        <div class="thanks-message" id="animated-scroll-up">
+          <span>Thanks for Scrolling</span>
+          <div class="up-arrow">↑</div>
+        </div>
+     
+        
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+  <script>
+    new fullpage('#fullpage', {
+      autoScrolling: true,
+      scrollingSpeed: 0, // We control timing manually
+      css3: false, // Disable built-in transitions
+      onLeave: function (origin, destination, direction) {
+        const leavingSection = origin.item;
+        const destinationIndex = destination.index;
+
+        // Add fade-out class
+        leavingSection.classList.add('fade-out');
+
+        // Prevent immediate transition
+        return new Promise(resolve => {
+          setTimeout(() => {
+            fullpage_api.moveTo(destinationIndex + 1);
+            leavingSection.classList.remove('fade-out');
+            resolve();
+          }, 600); // match fade-out time
+        });
+      }
+    });
+  </script>
+  <script>
+    const items = document.querySelectorAll('.carousel-item');
+    const track = document.querySelector('.carousel-track');
+    const container = document.querySelector('.carousel-container');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      items.forEach((item, index) => {
+        item.classList.remove('active');
+        if (index === currentIndex) {
+          item.classList.add('active');
+        }
+      });
+
+      // Calculate center offset
+      const containerWidth = container.offsetWidth;
+      const itemWidth = items[0].offsetWidth + 48; // item width + gap
+      const totalOffset = (itemWidth * currentIndex) + (itemWidth / 2) - (containerWidth / 2);
+
+      track.style.transform = `translateX(-${totalOffset}px)`;
+
+    }
+
+    items.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+
+    // Swipe support
+    let startX = 0;
+    container.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+
+    container.addEventListener('touchend', e => {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) {
+        currentIndex = Math.min(items.length - 1, currentIndex + 1);
+      } else if (endX - startX > 50) {
+        currentIndex = Math.max(0, currentIndex - 1);
+      }
+      updateCarousel();
+    });
+
+    // Init position
+    window.addEventListener('load', updateCarousel);
+  </script>
+<script>
+  document.getElementById('animated-scroll-up').addEventListener('click', function () {
+    fullpage_api.moveTo(2); // Go to parallax2
+  });
+</script>
+
+
+
+
+
+
+</body>
+
+</html>  

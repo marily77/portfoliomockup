@@ -1,0 +1,387 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family:"Poppins",sans-serif;
+  overflow: hidden; /* let fullPage.js handle scrolling */
+}
+
+.section {
+  text-align: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: 1px 1px 4px black;
+}
+
+.text-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.text-overlay h3 {
+  font-size: 1.5rem;
+}
+
+.parallax1 {
+  background-image: url('puud1.jpg');
+}
+
+.parallax2 {
+  background-image: url('puud2.jpg');
+}
+
+.parallax3 {
+  background-image: url('puud3.jpg');
+}
+.parallax4 {
+  background-image: url('puud4.jpg');
+}
+.parallax5 {
+  background-image: url('puud5.jpg');
+  height: 100vh;
+  overflow: hidden;
+
+}
+.section {
+  transition: opacity 0.6s ease;
+  opacity: 1;
+}
+
+.section.fade-out {
+  opacity: 0;
+}
+.text-overlay h1 {
+  font-size: 3rem;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.section.fade-out .text-overlay h1 {
+  transform: scale(1.3);
+  opacity: 0;
+}
+
+
+.section {
+  transition: opacity 0.6s ease;
+  opacity: 1;
+}
+
+.section.fade-out {
+  opacity: 0;
+}
+
+.text-overlay h1 {
+  font-size: 3rem;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.section.fade-out .text-overlay h1 {
+  transform: scale(1.3);
+  opacity: 0;
+}
+.section {
+  background-color: #9CB9A3; /* or a color close to your image, like dark green/gray */
+}
+
+
+  
+ #text3{
+  padding-bottom: 500px;
+ }
+ .parallax3 {
+  padding: 0; /* remove added height */
+  position: relative;
+  overflow: hidden; /* contain any unexpected overflow */
+}
+
+.carousel-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s ease;
+  overflow: visible;
+}
+
+.carousel-item {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  transition: transform 0.5s ease;
+  flex-shrink: 0;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.carousel-item.active {
+  transform: scale(1.5);
+  opacity: 1;
+  z-index: 10;
+}
+.section {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.carousel-heading {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 4px black;
+  z-index: 5;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.split-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 2rem 4rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.split-left {
+  flex: 1;
+  color: white;
+  text-align: left;
+}
+
+.split-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.split-left p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.more-btn {
+  margin-top: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #748b7a;
+  color: #e6e6e6;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Poppins",sans-serif;
+}
+
+.more-btn:hover {
+  background-color: #2E5844;
+}
+
+.split-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.split-right img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+.social-icons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-box {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255,255,255,0.15);
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.social-box:hover {
+  background-color: rgba(255,255,255,0.3);
+  transform: scale(1.25) rotate(2deg);
+  transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
+}
+
+.parallax5 .text-overlay {
+  max-height: 90vh;
+  padding: 2rem;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.social-icons {
+  flex-wrap: wrap;
+  max-width: 90%;
+}
+.thanks-message {
+  position: absolute;
+  bottom: 2rem;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  animation: floatUpDown 2s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.8;
+}
+
+.up-arrow {
+  font-size: 1.5rem;
+  margin-top: 0.3rem;
+}
+.thanks-message {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.thanks-message:hover {
+  opacity: 1;
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.text4{text-shadow: 1px 1px 4px black;}
+
+.p4{text-shadow: 1px 1px 4px black;}
+
+.parallax-menu {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.parallax-menu button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #71A08E;
+
+  border: 1px solid white;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-family: "Poppins", sans-serif;
+}
+
+.parallax-menu button:hover {
+  background-color:#A5CEC0 ;
+  transform: translateY(-2px);
+}
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid white;
+}
+
+.scroll-down-arrow {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  animation: bounceArrow 1.8s infinite;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-down-arrow:hover {
+  opacity: 1;
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
+}
+
+.social-box {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255,255,255,0.15);
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.social-box img {
+  width: 40px;
+  height: 40px;
+}
+
